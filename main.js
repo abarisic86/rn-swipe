@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { Card, Button } from 'react-native-elements'
 
 import Deck from './src/Deck'
 
@@ -19,11 +20,32 @@ const DATA = [
   { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
 ];
 
+
 class App extends React.Component {
+  renderCard(item) {
+    return (
+      <Card
+        title={item.text}
+        image={{ uri: item.uri }}
+        key={item.id}>
+        <Text style={{ marginBottom: 10 }}>
+          {item.title}
+        </Text>
+        <Button
+          icon={{ name: 'code' }}
+          backgroundColor="#03A9F4"
+          title="View Now!"/>
+      </Card>
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Deck />
+        <Deck
+          data={DATA}
+          renderCard={this.renderCard}
+        />
       </View>
     );
   }
@@ -33,8 +55,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
