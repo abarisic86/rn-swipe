@@ -27,10 +27,8 @@ class App extends React.Component {
       <Card
         title={item.text}
         image={{ uri: item.uri }}
-        key={item.id}>
-        <Text style={{ marginBottom: 10 }}>
-          {item.title}
-        </Text>
+        key={item.id}
+      >
         <Button
           icon={{ name: 'code' }}
           backgroundColor="#03A9F4"
