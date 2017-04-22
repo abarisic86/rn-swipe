@@ -61,7 +61,12 @@ class Deck extends Component {
         )
       } else {
         return (
-          <Animated.View key={item.id} style={styles.cardStyle}>
+          <Animated.View key={item.id}
+            style={[styles.cardStyle, {
+              top: 5 * (i - this.state.index)
+            }, {
+                transform: [{ rotate: ((i % 3) - 1) * 3 + 'deg'}]
+            }]}>
             {this.props.renderCard(item)}
           </Animated.View>
         )
