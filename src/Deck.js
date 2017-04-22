@@ -15,8 +15,8 @@ const SWIPE_OUT_DURATION = 250
 class Deck extends Component {
 
   static defaultProps = {
-    onSwipeRight: () => {},
-    onSwipeLeft: () => {}
+    onSwipeRight: () => { },
+    onSwipeLeft: () => { }
   }
 
   constructor(props) {
@@ -45,8 +45,8 @@ class Deck extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.data !== this.props.data) {
-      this.setState({index: 0})
-    }    
+      this.setState({ index: 0 })
+    }
   }
 
   componentWillUpdate() {
@@ -54,7 +54,6 @@ class Deck extends Component {
       UIManager.setLayoutAnimationEnabledExperimental(true)
     LayoutAnimation.spring()
   }
-
 
   renderCards() {
     if (this.state.index >= this.props.data.length) {
@@ -77,9 +76,8 @@ class Deck extends Component {
         return (
           <Animated.View key={item.id}
             style={[styles.cardStyle, {
-              top: 5 * (i - this.state.index)
-            }, {
-                transform: [{ rotate: ((i % 3) - 1) * 3 + 'deg'}]
+              top: 5 * (i - this.state.index),
+              transform: [{ rotate: ((i % 3) - 1) * 3 + 'deg' }]
             }]}>
             {this.props.renderCard(item)}
           </Animated.View>
@@ -117,9 +115,9 @@ class Deck extends Component {
     const item = data[this.state.index]
 
     direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item)
-    
-    this.state.position.setValue({ x:0, y:0 })
-    this.setState({index: this.state.index + 1})
+
+    this.state.position.setValue({ x: 0, y: 0 })
+    this.setState({ index: this.state.index + 1 })
   }
 
   resetPosition() {
