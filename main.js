@@ -20,7 +20,6 @@ const DATA = [
   { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
 ];
 
-
 class App extends React.Component {
   renderCard(item) {
     return (
@@ -32,7 +31,7 @@ class App extends React.Component {
         <Button
           icon={{ name: 'code' }}
           backgroundColor="#03A9F4"
-          title="View Now!"/>
+          title="View Now!" />
       </Card>
     )
   }
@@ -44,7 +43,7 @@ class App extends React.Component {
         <Text style={{ marginBottom: 10 }}>
           There's no more content here!
         </Text>
-        <Button title="Get more!"/>
+        <Button title="Get more!" />
       </Card>
     )
   }
@@ -54,8 +53,8 @@ class App extends React.Component {
       <View style={styles.container}>
         <Deck
           data={DATA}
-          renderCard= {this.renderCard}
-          renderNoMoreCards = { this.renderNoMoreCards}
+          renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );
